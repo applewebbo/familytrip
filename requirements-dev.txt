@@ -1,3 +1,4 @@
+black
 factory-boy==3.2.1
 pip-tools
 pre-commit
