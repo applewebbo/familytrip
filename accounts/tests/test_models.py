@@ -7,3 +7,4 @@ class TestCustomUser:
         user = CustomUserFactory()
 
         assert user is not None
+        assert str(user) is user.email
