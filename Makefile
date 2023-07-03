@@ -21,3 +21,6 @@ coverage:
 fcov:
 	@echo "Running fast coverage check"
 	@pytest --cov -n 4 --dist loadfile -q
+
+watch:
+	tailwindcss -i static/src/main.css -o static/css/style.css --watch
