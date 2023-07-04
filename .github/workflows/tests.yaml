@@ -10,6 +10,8 @@ jobs:
     env:
       ALLOWED_HOSTS: '*'
       SECRET_KEY: 'a secret to everybody'
+      MAILJET_API_KEY: 'a secret to everybody'
+      MAILJET_SECRET_KEY: 'a secret to everybody'
 
     steps:
       - name: Get the code
