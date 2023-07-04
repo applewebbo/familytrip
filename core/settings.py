@@ -9,7 +9,7 @@ env = environ.Env(
     ACCOUNT_DEFAULT_HTTP_PROTOCOL=(str, "https"),
     ALLOWED_HOSTS=(list, []),
     DEBUG=(bool, False),
-    EMAIL_BACKEND=(str, "FIXME: replace with anymail backend"),
+    EMAIL_BACKEND=(str, "anymail.backends.mailjet.EmailBackend"),
 )
 environ.Env.read_env(BASE_DIR / ".env")
 
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "anymail",
     "django_extensions",
     # LOCAL APPS
     "accounts",
@@ -188,3 +189,11 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 # ACCOUNT_USERNAME_VALIDATORS => default
 # SOCIALACCOUNT_* => default
+
+
+# ANYMAIL
+
+ANYMAIL = {
+    "MAILJET_API_KEY": env("MAILJET_API_KEY"),
+    "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
+}
