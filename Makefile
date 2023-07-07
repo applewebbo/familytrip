@@ -1,6 +1,6 @@
 .PHONY: server
 
-server:
+local:
 	python manage.py runserver
 
 requirements-dev:
