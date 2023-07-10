@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "anymail",
     "django_extensions",
+    "crispy_forms",
+    "crispy_bootstrap5",
     # LOCAL APPS
     "accounts",
     "main",
@@ -197,3 +199,8 @@ ANYMAIL = {
     "MAILJET_API_KEY": env("MAILJET_API_KEY"),
     "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
 }
+
+# CRISPY_FORMS
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

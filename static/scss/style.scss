@@ -1,0 +1,90 @@
+// Main.scss
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../src/scss/functions";
+
+// 2. Include any default variable overrides here
+// Define color palette
+$primary: #00ADB5;
+
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../src/scss/variables";
+@import "../../src/scss/variables-dark";
+
+// 4. Include any default map overrides here
+// Create your own color map
+
+// $custom-colors: (
+//     "tertiary": #ff9f1cff,
+//     "quaternary": #1a090dff,
+//     "quinary": #eef8fcff,
+// );
+// // Merge "$theme-colors" map and "$custom-colors" map
+// $theme-colors: map-merge($theme-colors, $custom-colors);
+
+// @each $color,
+// $value in $grays {
+//     .bg-gray-#{$color} {
+//         background-color: $value;
+//     }
+// }
+
+// @each $color,
+// $value in $blues {
+//     .bg-#{$color} {
+//         background-color: $value;
+//     }
+// }
+
+// 5. Include remainder of required parts
+@import "../../src/scss/maps";
+@import "../../src/scss/mixins";
+@import "../../src/scss/root";
+
+// Optional Bootstrap CSS
+@import "../../src/scss/reboot";
+@import "../../src/scss/type";
+@import "../../src/scss/images";
+@import "../../src/scss/containers";
+@import "../../src/scss/grid";
+@import "../../src/scss/tables";
+@import "../../src/scss/forms";
+@import "../../src/scss/buttons";
+@import "../../src/scss/transitions";
+@import "../../src/scss/dropdown";
+@import "../../src/scss/button-group";
+@import "../../src/scss/nav";
+@import "../../src/scss/navbar";
+@import "../../src/scss/card";
+@import "../../src/scss/accordion";
+@import "../../src/scss/breadcrumb";
+@import "../../src/scss/pagination";
+@import "../../src/scss/badge";
+@import "../../src/scss/alert";
+@import "../../src/scss/progress";
+@import "../../src/scss/list-group";
+@import "../../src/scss/close";
+@import "../../src/scss/toasts";
+@import "../../src/scss/modal";
+@import "../../src/scss/tooltip";
+@import "../../src/scss/popover";
+@import "../../src/scss/carousel";
+@import "../../src/scss/spinners";
+@import "../../src/scss/offcanvas";
+@import "../../src/scss/placeholders";
+
+// Helpers
+@import "../../src/scss/helpers";
+
+// Utilities
+@import "../../src/scss/utilities";
+
+// Utilities API
+@import "../../src/scss/utilities/api";
+
+// --licorice: #1a090dff;
+// --raspberry: #d81159ff;
+// --lapis-lazuli: #155d7aff;
+// --alice-blue: #eef8fcff;
+// --orange-peel: #ff9f1cff;

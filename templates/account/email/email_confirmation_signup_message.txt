@@ -1,0 +1,8 @@
+Benvenuto su FamilyTrip,
+
+per cominciare ad esplorare le funzionalità del sito devi verificare il tuo indirizzo mail cliccando sul seguente link:
+
+{{ activate_url}}
+
+Saluti,
+Enrico - FamilyTrip

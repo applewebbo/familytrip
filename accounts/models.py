@@ -23,6 +23,8 @@ class Profile(models.Model):
         CANCELLED = 5
         TRIAL_EXPIRED = 6
 
+    ACTIVE_STATUSES = (Status.ACTIVE, Status.TRIAL, Status.EXEMPT)
+
     user = models.OneToOneField(
         CustomUser,
         on_delete=models.CASCADE,
