@@ -4,6 +4,25 @@
 $primary : #1B6B93;
 $light: #F4FBFF;
 
+$spacer: 1rem !default;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 6,
+    7: $spacer * 8,
+    8: $spacer * 12,
+) !default;
+
+
 @import "../../src/scss/bootstrap.scss";
 
 // Then add additional custom code here
+
+.navbar-sticky {
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
