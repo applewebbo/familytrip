@@ -24,11 +24,14 @@ django==4.2.3
     #   crispy-bootstrap5
     #   django-allauth
     #   django-anymail
+    #   django-browser-reload
     #   django-crispy-forms
     #   django-extensions
 django-allauth==0.54.0
     # via -r requirements.in
 django-anymail[mailjet]==10.0
+    # via -r requirements.in
+django-browser-reload==1.11.0
     # via -r requirements.in
 django-crispy-forms==2.0
     # via
