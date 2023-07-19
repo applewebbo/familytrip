@@ -1,33 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% load static crispy_forms_tags %}
 
-{% block head_title %}Login{% endblock %}
+{% block head_title %}Registrati{% endblock %}
 
 {% block navbar %}
 {% endblock navbar %}
 
-{% block content %}
+
+{% block content %} 
 <div class="container my-5">
     <div class="row">
         <div class="col-md-6 offset-md-3 login">
             <div class="d-flex flex-row mb-3 justify-content-center align-items-center">
                 <img src="{% static 'images/logo.png' %}" alt="Site Logo" height="85">
             </div>
-                <form method="POST" action="{% url 'account_login' %}">
+                <form method="POST" id="signup_form" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                     {{ form|crispy}}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
                 <div class="d-grid my-5">
-                    <button type="submit" class="btn btn-primary" >Entra</button>
+                    <button type="submit" class="btn btn-primary" >Registrati</button>
                 </div>
-                <a href="#">Password dimenticata?</a>
                 <p class="text-muted">
-                    Non hai ancora un account? <a href="{% url 'account_signup' %}" >Registrati</a>
+                    Hai già un account? Effettua il <a href="{% url 'account_login' %}" >login</a>
                 </p>
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock content %}
+    
