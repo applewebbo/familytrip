@@ -1,4 +1,8 @@
-from accounts.tests.factories import CustomUserFactory, ProfileFactory
+from accounts.tests.factories import (
+    CustomUserFactory,
+    FamilyMemberFactory,
+    ProfileFactory,
+)
 
 
 class TestCustomUser:
@@ -19,3 +23,15 @@ class TestProfile:
         assert profile is not None
         assert profile.user is not None
         assert profile.status == profile.Status.TRIAL
+
+
+class TestFamilyMember:
+    def test_familymember(self):
+        """The family member is connected to a user and have valid attributes"""
+
+        family_member = FamilyMemberFactory()
+
+        assert family_member is not None
+        assert family_member.user is not None
+        assert family_member.name is not None
+        assert family_member.birthdate is not None

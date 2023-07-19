@@ -36,6 +36,12 @@ class Profile(models.Model):
     )
 
 
+class FamilyMember(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="family_members")
+    name = models.CharField(max_length=100)
+    birthdate = models.DateField()
+
+
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_profile(sender, instance, created, **kwargs):
     """A new user get an associated profile"""
