@@ -35,11 +35,21 @@ class Profile(models.Model):
         db_index=True,
     )
 
+    def __str__(self):
+        return self.user.email
 
-class FamilyMember(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="family_members")
+
+class TravelFriend(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="travel_friends")
     name = models.CharField(max_length=100)
-    birthdate = models.DateField()
+    birthdate = models.DateField(null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "compagno di viaggio"
+        verbose_name_plural = "compagni di viaggio"
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)

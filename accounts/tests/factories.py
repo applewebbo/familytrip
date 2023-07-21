@@ -18,9 +18,9 @@ class ProfileFactory(factory.django.DjangoModelFactory):
 
 
 @factory.django.mute_signals(post_save)
-class FamilyMemberFactory(factory.django.DjangoModelFactory):
+class TravelFriendFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = "accounts.FamilyMember"
+        model = "accounts.TravelFriend"
 
     user = factory.SubFactory("accounts.tests.factories.CustomUserFactory")
     birthdate = factory.Faker(

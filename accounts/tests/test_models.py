@@ -1,13 +1,13 @@
 from accounts.tests.factories import (
     CustomUserFactory,
-    FamilyMemberFactory,
     ProfileFactory,
+    TravelFriendFactory,
 )
 
 
 class TestCustomUser:
     def test_factory(self):
-        """The factory produces a valid instance"""
+        """The factory produces a valid instance and related user_profile"""
         user = CustomUserFactory()
 
         assert user is not None
@@ -25,13 +25,13 @@ class TestProfile:
         assert profile.status == profile.Status.TRIAL
 
 
-class TestFamilyMember:
-    def test_familymember(self):
+class TestTravelFriend:
+    def test_travelfriend(self):
         """The family member is connected to a user and have valid attributes"""
 
-        family_member = FamilyMemberFactory()
+        travel_friend = TravelFriendFactory()
 
-        assert family_member is not None
-        assert family_member.user is not None
-        assert family_member.name is not None
-        assert family_member.birthdate is not None
+        assert travel_friend is not None
+        assert travel_friend.user is not None
+        assert travel_friend.name is not None
+        assert travel_friend.birthdate is not None
