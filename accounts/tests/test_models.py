@@ -21,6 +21,7 @@ class TestProfile:
         profile = ProfileFactory()
 
         assert profile is not None
+        assert str(profile) == profile.user.email
         assert profile.user is not None
         assert profile.status == profile.Status.TRIAL
 
@@ -32,6 +33,7 @@ class TestTravelFriend:
         travel_friend = TravelFriendFactory()
 
         assert travel_friend is not None
+        assert str(travel_friend) == travel_friend.name
         assert travel_friend.user is not None
         assert travel_friend.name is not None
         assert travel_friend.birthdate is not None
