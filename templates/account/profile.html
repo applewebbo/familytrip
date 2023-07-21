@@ -3,7 +3,23 @@
 
 {% block content %}
     <div class="container py-7">
-        <h3>Profile Page</h3>
+        <h1 class="fw-bold fs-3 text-primary my-5">Profilo personale</h1>
+        <p>Bentornato {{ user.email }}, qui trovi le tue preferenze, i membri della tua famiglia, i viaggi in preparazione e quelli già fatti.</p>
+        <hr>
+        <h3 class="fw-bold fs-4 text-primary my-5">Informazioni personali</h3>
+        <ul class="list-unstyled">
+            <li><span class="fw-bold">Nome: </span>{{ user.first_name }}</li>
+            <li><span class="fw-bold">Cognome: </span>{{ user.last_name }}</li>
+            <li><span class="fw-bold">Email: </span>{{ user.email }}<i class="fa-solid fa-circle-check text-success ms-3"></i></li>
+        </ul>
+        <hr>
+        <h3 class="fw-bold fs-4 text-primary my-5">Compagni di viaggio</h3>
+        <ul class="list-unstyled">
+        {% for friend in travel_friends %}
+            <li><span class="fw-bold">Nome: </span>{{ friend.name }}</li>
+            <li><span class="fw-bold">Età: </span>{{ user.birthdate }}</li>
+        {% endfor %}
+        </ul>  
     </div>
 {% endblock content %}
     

@@ -28,6 +28,11 @@
     {% block content %}
     {% endblock content %}
 
+    <!-- modal placeholder -->
+    <div id="modal" class="modal fade">
+        <div id="dialog" class="modal-dialog" hx-target="this"></div>
+      </div>
+
     <!-- Bootstrap JS -->
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <!-- Htmx -->
