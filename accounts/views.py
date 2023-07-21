@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 
 from .models import CustomUser, TravelFriend
 
 
+@login_required
 def account_profile(request):
     user = get_object_or_404(CustomUser, email=request.user)
     travel_friends = TravelFriend.objects.filter(user=user)
