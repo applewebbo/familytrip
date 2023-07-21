@@ -8,7 +8,8 @@ body {
 }
 
 @media ( min-width: 992px) {
-    .login {
+    .login,
+    .verification {
         max-width: 450px;
         margin: auto;
     }

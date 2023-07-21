@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}Verifica il tuo indirizzo email{% endblock %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 verification">
+                <div class="d-flex flex-row mb-3 justify-content-center">
+                    <img src="{% static 'images/logo.png' %}" alt="Site Logo" height="85">
+                </div>
+                <div class="text-center">
+                    <h3 class="mb-5 text-primary fw-bold">Verifica il tuo indirizzo email</h3>
+                </div>
+        <p class="text-muted">Ti abbiamo appena inviato una mail.</p>
+        <p class="text-muted">Segui il link per confermare il tuo indirizzo. Se non ricevi la mail controlla nella cartella di posta indesiderata. Se non ricevi la mail entro pochi minuti non esitare a contattarci.</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

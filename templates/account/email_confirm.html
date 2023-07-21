@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load account %}
+
+{% block head_title %}Conferma indirizzo mail{% endblock %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 verification">
+            <div class="d-flex flex-row mb-3 justify-content-center">
+                <img src="{% static 'images/logo.png' %}" alt="Site Logo" height="85">
+            </div>
+            <div class="text-center">
+                <h3 class="mb-5 text-primary fw-bold">Conferma l'indirizzo mail</h3>
+            </div>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+{% if can_confirm %}
+<p>Per favore conferma il seguente indirizzo mail <a href="mailto:{{ confirmation.email_address.email }}">{{ confirmation.email_address.email }}</a>.</p>
+
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+{% csrf_token %}
+    <button type="submit" class="btn btn-primary btn-sm">{% trans 'Confirm' %}</button>
+</form>
+{% else %}
+<p>Impossibile confermare {{ confirmation.email_address.email }} perchè già in uso.</p>
+{% endif %}
+
+{% else %}
+
+{% url 'account_email' as email_url %}
+
+<p class="text-muted">Questo link non è più valido.</p>
+<p class="text-muted">Per favore ripeti la procedura di <a href="{% url 'account_signup' %}">registrazione</a></p>
+
+{% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

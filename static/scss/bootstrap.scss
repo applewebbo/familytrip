@@ -17,6 +17,8 @@ $spacers: (
     8: $spacer * 12,
 ) !default;
 
+$line-height-base: 1.7;
+
 
 @import "../../src/scss/bootstrap.scss";
 
