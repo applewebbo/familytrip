@@ -1,11 +1,12 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg fixed-top bg-light">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
       <img
         src="{% static 'images/logo.png' %}"
         alt="Logo"
-        height="42" />
+        height="64" />
+        <span class="h4 fw-medium">Voyager</span>
     </a>
     <button
       class="navbar-toggler"
@@ -35,7 +36,7 @@
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item dropdown dropdown-center">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-circle-user me-1"></i>{{ user.email }}</a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="{% url 'accounts:profile' %}">Profilo</a></li>
             <li><a class="dropdown-item" hx-get="{% url 'account_logout' %}" hx-target="#dialog">Logout</a></li>

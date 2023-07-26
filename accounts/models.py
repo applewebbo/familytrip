@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -34,6 +36,8 @@ class Profile(models.Model):
         default=Status.TRIAL,
         db_index=True,
     )
+    first_name = models.CharField(max_length=100, null=True)
+    last_name = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.user.email
@@ -42,10 +46,19 @@ class Profile(models.Model):
 class TravelFriend(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="travel_friends")
     name = models.CharField(max_length=100)
-    birthdate = models.DateField(null=True)
+    birthdate = models.DateField()
 
     def __str__(self):
         return self.name
+
+    @property
+    def age(self):
+        today = date.today()
+        age = today.year - self.birthdate.year
+        if age > 18:
+            return "18+"
+        else:
+            return age
 
     class Meta:
         verbose_name = "compagno di viaggio"

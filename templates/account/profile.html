@@ -4,21 +4,34 @@
 {% block content %}
     <div class="container py-7">
         <h1 class="fw-bold fs-3 text-primary my-5">Profilo personale</h1>
-        <p>Bentornato {{ user.email }}, qui trovi le tue preferenze, i membri della tua famiglia, i viaggi in preparazione e quelli già fatti.</p>
+        <p>Bentornato {% if user.profile.first_name%}{{user.profile.first_name}}{% else %}{{ user.email }} {% endif %}, qui trovi le tue preferenze, i tuoi compagni di viaggio, i viaggi in preparazione e quelli già fatti.</p>
         <hr>
-        <h3 class="fw-bold fs-4 text-primary my-5">Informazioni personali</h3>
-        <ul class="list-unstyled">
-            <li><span class="fw-bold">Nome: </span>{{ user.first_name }}</li>
-            <li><span class="fw-bold">Cognome: </span>{{ user.last_name }}</li>
-            <li><span class="fw-bold">Email: </span>{{ user.email }}<i class="fa-solid fa-circle-check text-success ms-3"></i></li>
-        </ul>
+        <div id="personal">
+            <div class="d-flex align-items-center">
+                <h3 class="fw-bold fs-4 text-primary my-5 me-3">Informazioni personali</h3>
+                <button class="btn btn-outline-success btn-sm"
+                        hx-get="{% url 'accounts:profile_edit' user.pk %}"
+                        hx-target="#dialog">
+                    <i class="fa-solid fa-pen fa-sm me-2"></i>Modifica
+                </button>
+            </div>
+            <ul class="list-unstyled">
+                <li><span class="fw-bold">Nome: </span>{{ user.profile.first_name }}</li>
+                <li><span class="fw-bold">Cognome: </span>{{ user.profile.last_name }}</li>
+            </ul>
+        </div>
         <hr>
         <h3 class="fw-bold fs-4 text-primary my-5">Compagni di viaggio</h3>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled vstack gap-3">
         {% for friend in travel_friends %}
-            <li><span class="fw-bold">Nome: </span>{{ friend.name }}</li>
-            <li><span class="fw-bold">Età: </span>{{ user.birthdate }}</li>
-        {% endfor %}
+            <li>{{ friend.name }} 
+            {% if friend.age == '18+' %}
+                (18+)
+                {% else %}
+                ({{ friend.age }})
+                {% endif %}
+            {% endfor %}
+            </li>
         </ul>  
     </div>
 {% endblock content %}

@@ -2,15 +2,15 @@
 <div class="modal-content">
     <div class="modal-body">
         <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    <form method="post" action="{% url 'account_logout' %}">
-    {% csrf_token %}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-    {% endif %}
-    <div class="text-end">
-        <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal" aria-label="Close">Chiudi</a>
-        <button type="submit" class="btn btn-danger btn-sm">{% trans 'Sign Out' %}</button>
-    </div>
-    </form>
+        <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <div class="text-end">
+            <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal" aria-label="Close">Chiudi</a>
+            <button type="submit" class="btn btn-danger btn-sm">{% trans 'Sign Out' %}</button>
+        </div>
+        </form>
     </div>
 </div>

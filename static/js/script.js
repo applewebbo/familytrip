@@ -3,11 +3,13 @@ function userScroll() {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('bg-dark');
+            navbar.classList.add('bg-primary');
             navbar.classList.add('navbar-sticky');
+            navbar.setAttribute('data-bs-theme', 'dark');
         } else {
-            navbar.classList.remove('bg-dark');
+            navbar.classList.remove('bg-primary');
             navbar.classList.remove('navbar-sticky');
+            navbar.setAttribute('data-bs-theme', 'light');
         }
     });
 }
