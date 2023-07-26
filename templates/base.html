@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'fontawesome/css/brands.min.css' %}">
 </head>
 
-<body>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 
     {% block navbar %}
         {% include 'includes/navbar.html' %}
