@@ -1,5 +1,9 @@
+from crispy_bootstrap5.bootstrap5 import FloatingField
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Div, Layout, Submit
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.urls import reverse_lazy
 
 from .models import CustomUser, Profile
 
@@ -21,6 +25,19 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ("first_name", "last_name")
 
-    # def __init__(self, *args, **kwargs):
-    #     self.user = kwargs.pop("user")
-    #     super(ProfileForm, self).__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        self.pk = kwargs.pop("pk")
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.attrs = {
+            "hx-post": reverse_lazy("accounts:profile_edit", kwargs={"pk": self.pk}),
+        }
+        self.helper.disable_csrf = True
+        self.helper.layout = Layout(
+            FloatingField("first_name"),
+            FloatingField("last_name"),
+            Div(
+                Submit("submit", "Salva"),
+                css_class="d-grid",
+            ),
+        )

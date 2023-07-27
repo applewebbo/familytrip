@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "anymail",
     "django_browser_reload",
     "django_extensions",
+    "django_htmx",
     "crispy_forms",
     "crispy_bootstrap5",
     # LOCAL APPS
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

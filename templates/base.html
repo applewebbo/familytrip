@@ -1,4 +1,4 @@
-{% load static %}
+{% load static django_htmx %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +37,7 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <!-- Htmx -->
     <script src="{% static 'js/htmx.min.js' %}"></script>
+    {% django_htmx_script %}
     <!-- Custom JS -->
     <script src="{% static 'js/script.js' %}"></script>
 </body>

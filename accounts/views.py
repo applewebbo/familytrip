@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
+from render_block import render_block_to_string
 
 from .forms import ProfileForm
 from .models import Profile, TravelFriend
@@ -13,6 +15,10 @@ def account_profile(request):
         "user": user,
         "travel_friends": travel_friends,
     }
+    if request.htmx:
+        html = render_block_to_string("account/profile.html", "profile_info", context)
+        response = HttpResponse(html)
+        return response
     return render(request, "account/profile.html", context)
 
 
@@ -21,12 +27,18 @@ def profile_edit(request, pk):
     user = request.user
     profile = get_object_or_404(Profile, user=user)
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=profile)
+        form = ProfileForm(request.POST, instance=profile, pk=user.pk)
         if form.is_valid():
             form.save()
-        form = ProfileForm(request.POST, instance=profile)
+            return HttpResponse(
+                status=204,
+                headers={
+                    "HX-Trigger": "profileSaved",
+                },
+            )
+        form = ProfileForm(request.POST, instance=profile, pk=user.pk)
         context = {"personal_form": form}
         return render(request, "account/profile_edit.html", context)
-    form = ProfileForm(instance=profile)
+    form = ProfileForm(instance=profile, pk=user.pk)
     context = {"personal_form": form}
     return render(request, "account/profile_edit.html", context)
