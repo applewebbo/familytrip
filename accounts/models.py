@@ -53,12 +53,9 @@ class TravelFriend(models.Model):
 
     @property
     def age(self):
-        today = date.today()
-        age = today.year - self.birthdate.year
-        if age > 18:
-            return "18+"
-        else:
-            return age
+        days_in_year = 365.2425
+        age = int((date.today() - self.birthdate).days / days_in_year)
+        return age
 
     class Meta:
         verbose_name = "compagno di viaggio"

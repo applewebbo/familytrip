@@ -1,3 +1,5 @@
+from datetime import date
+
 from accounts.tests.factories import (
     CustomUserFactory,
     ProfileFactory,
@@ -37,3 +39,6 @@ class TestTravelFriend:
         assert travel_friend.user is not None
         assert travel_friend.name is not None
         assert travel_friend.birthdate is not None
+        assert travel_friend.age is not None
+        days_in_year = 365.2425
+        assert travel_friend.age == int((date.today() - travel_friend.birthdate).days / days_in_year)

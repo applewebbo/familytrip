@@ -1,5 +1,3 @@
-import datetime
-
 import factory
 from django.db.models.signals import post_save
 
@@ -24,6 +22,6 @@ class TravelFriendFactory(factory.django.DjangoModelFactory):
 
     user = factory.SubFactory("accounts.tests.factories.CustomUserFactory")
     birthdate = factory.Faker(
-        "date",
-        end_datetime=datetime.date.today(),
+        "date_of_birth",
+        maximum_age=25,
     )

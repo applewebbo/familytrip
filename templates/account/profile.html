@@ -29,7 +29,7 @@
                 <ul class="list-unstyled vstack gap-3">
                 {% for friend in travel_friends %}
                     <li>{{ friend.name }} 
-                    {% if friend.age == '18+' %}
+                    {% if friend.age >= 18 %}
                         (18+)
                         {% else %}
                         ({{ friend.age }})
